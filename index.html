@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Eco_Brasil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Espaço para a imagem do logo -->
+        <img src="logo.png" alt="Logo Eco_Brasil" class="logo">
+        
+        <!-- Campos de entrada -->
+        <form id="loginForm" action="../pag inicial/pagina_inicial.html" method="get">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            </div>
+            
+            <!-- Botão de login -->
+            <button type="submit" class="login-button">Login</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+        
+        <!-- Espaço para uma imagem decorativa -->
+        <div class="decorative-image">
+            <img src="decorative-image.png" alt="Descrição da Imagem" class="imagem">
+        </div>
+        
+        <!-- Rodapé -->
+        <p>&copy; 2025 EcoBrasil. Todos os direitos reservados.</p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            
+            if (username.trim() === '' || password.trim() === '') {
+                event.preventDefault(); // Impede o envio do formulário
+                errorMessage.textContent = 'Por favor, preencha todos os campos.';
+            } else {
+                errorMessage.textContent = '';
+                // Aqui o formulário será enviado normalmente
+            }
+        });
+    </script>
+</body>
+</html>
